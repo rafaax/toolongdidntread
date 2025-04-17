@@ -5,7 +5,7 @@ from transformers import T5Tokenizer, T5ForConditionalGeneration
 token_name = 'unicamp-dl/ptt5-base-portuguese-vocab'
 model_name = 'phpaiola/ptt5-base-summ-xlsum'
 
-tokenizer = T5Tokenizer.from_pretrained(token_name)
+tokenizer = T5Tokenizer.from_pretrained(token_name, legacy=False)
 model_pt = T5ForConditionalGeneration.from_pretrained(model_name)
 
 with open('exemplos.json', 'r', encoding='utf-8') as f: # carregar exemplos do arquivo JSON
@@ -72,7 +72,7 @@ with gr.Blocks() as interface:
             input_text = gr.Textbox(
                 label="Texto para resumir",
                 lines=10,
-                placeholder="Digite ou cole seu texto aqui (mínimo 5-6 frases)..."
+                placeholder="Digite seu texto aqui (mínimo 30 letras)"
             )
             
             
@@ -104,4 +104,4 @@ with gr.Blocks() as interface:
         outputs=output_text
     )
 
-interface.launch()
+interface.launch(share=True, debug=True)
