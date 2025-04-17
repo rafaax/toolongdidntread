@@ -54,8 +54,10 @@ def carregar_exemplo(exemplo):
     return exemplos[exemplo]
 
 with gr.Blocks() as interface:
-    gr.Markdown("## ✂️ Sumarizador Avançado de Texto em Português (T5)")
-    
+    gr.Markdown("## Sumarizador de texto em portugues com T5")
+    gr.Markdown("### Insira o texto que deseja resumir e clique em 'Gerar Resumo'")
+    gr.Markdown("### Ou selecione um exemplo pronto para carregar")
+
     with gr.Row():
         with gr.Column():
         
@@ -76,9 +78,10 @@ with gr.Blocks() as interface:
             
             with gr.Row():
                 complexidade = gr.Radio(
-                    label="Nível de Análise",
+                    label="Qualidade da Análise",
+                    info="Tem influencia no tempo de resposta",
                     choices=["Rápido", "Balanceado", "Detalhado"],
-                    value="Balanceado"
+                    value="Rápido"
                 )
                 btn = gr.Button("Gerar Resumo", variant="primary")
         
