@@ -1,14 +1,12 @@
 import gradio as gr
 from transformers import T5Tokenizer, T5ForConditionalGeneration
 
-# Carrega o tokenizer e o modelo T5 em português
 token_name = 'unicamp-dl/ptt5-base-portuguese-vocab'
 model_name = 'phpaiola/ptt5-base-summ-xlsum'
 
 tokenizer = T5Tokenizer.from_pretrained(token_name)
 model_pt = T5ForConditionalGeneration.from_pretrained(model_name)
 
-# Textos de exemplo
 exemplos = {
     "Artigo Científico": """
 A inteligência artificial (IA) tem revolucionado diversos setores, desde a medicina até o entretenimento. 
