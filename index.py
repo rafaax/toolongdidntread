@@ -1,4 +1,5 @@
 import gradio as gr
+import json
 from transformers import T5Tokenizer, T5ForConditionalGeneration
 
 token_name = 'unicamp-dl/ptt5-base-portuguese-vocab'
@@ -7,35 +8,9 @@ model_name = 'phpaiola/ptt5-base-summ-xlsum'
 tokenizer = T5Tokenizer.from_pretrained(token_name)
 model_pt = T5ForConditionalGeneration.from_pretrained(model_name)
 
-exemplos = {
-    "Artigo Científico": """
-A inteligência artificial (IA) tem revolucionado diversos setores, desde a medicina até o entretenimento. 
-Com algoritmos cada vez mais avançados, máquinas são capazes de aprender padrões, tomar decisões e até 
-mesmo simular emoções humanas. Na área da saúde, por exemplo, sistemas de IA ajudam no diagnóstico de 
-doenças com precisão superior à de muitos profissionais. Empresas também utilizam chatbots para 
-atendimento ao cliente, reduzindo custos e aumentando a eficiência. Por outro lado, o avanço da IA 
-levanta questões éticas e preocupações. Muitos temem que a automação substitua empregos tradicionais, 
-aumentando o desemprego. Além disso, há debates sobre privacidade, já que sistemas de reconhecimento 
-facial e análise de dados podem ser usados para vigilância em massa. Especialistas argumentam que é 
-necessário regulamentar o uso da IA para garantir que os benefícios superem os riscos.
-""",
-    "Notícia Política": """
-O presidente anunciou hoje um novo pacote de medidas econômicas para estimular o crescimento do país. 
-Entre as principais iniciativas estão a redução de impostos para pequenas empresas e o aumento do 
-investimento em infraestrutura. A oposição, no entanto, critica as medidas, alegando que beneficiam 
-apenas setores específicos da economia e não resolvem os problemas estruturais. Analistas econômicos 
-dividem-se sobre o impacto real das medidas, com alguns prevendo um crescimento moderado e outros 
-alertando para o risco de aumento da inflação. O pacote será votado no congresso na próxima semana.
-""",
-    "Resenha Literária": """
-O novo romance do autor consagrado mistura elementos de ficção científica com uma profunda reflexão 
-sobre a condição humana. A narrativa segue três personagens em tempos distintos cujas vidas se 
-entrelaçam de maneira surpreendente. A prosa poética e as descrições vívidas transportam o leitor para 
-mundos alternativos enquanto exploram temas universais como amor, perda e redenção. Embora alguns 
-críticos considerem o ritmo lento em certos momentos, a maioria concorda que se trata de uma obra 
-madura e emocionante, possivelmente a melhor do autor até agora.
-"""
-}
+with open('exemplos.json', 'r', encoding='utf-8') as f:
+    exemplos = json.load(f)
+
 
 def sumarizar_texto(texto, complexidade):
     if len(texto.split()) < 30:
