@@ -8,39 +8,39 @@ model_name = 'phpaiola/ptt5-base-summ-xlsum'
 tokenizer = T5Tokenizer.from_pretrained(token_name)
 model_pt = T5ForConditionalGeneration.from_pretrained(model_name)
 
-with open('exemplos.json', 'r', encoding='utf-8') as f:
+with open('exemplos.json', 'r', encoding='utf-8') as f: # carregar exemplos do arquivo JSON
     exemplos = json.load(f)
 
 
 def sumarizar_texto(texto, complexidade):
     if len(texto.split()) < 30:
-        return "Por favor, insira um texto mais longo (pelo menos 5-6 frases)"
+        return "Por favor, insira um texto mais longo (pelo menos 5-6 frases)" ## dependemos de um resumo relativamente ok para analisar e fazer a sumarização
     
     try:
         if complexidade == "Rápido":
             params = {
-                'max_length': 150,
-                'min_length': 30,
-                'num_beams': 2,
-                'no_repeat_ngram_size': 2,
-                'early_stopping': True
+                'max_length': 150, # resposta mais curta ainda
+                'min_length': 30, # resposta mais curta ainda
+                'num_beams': 2, # 2 feixes para busca
+                'no_repeat_ngram_size': 2, # evitar repetições
+                'early_stopping': True # parar quando o resumo estiver completo
             }
         elif complexidade == "Balanceado":
             params = {
-                'max_length': 200,
-                'min_length': 50,
-                'num_beams': 4,
-                'no_repeat_ngram_size': 3,
-                'early_stopping': True
+                'max_length': 200, # resposta mais curta
+                'min_length': 50, # resposta mais curta
+                'num_beams': 4, # 4 feixes para busca 
+                'no_repeat_ngram_size': 3, # evitar repetições
+                'early_stopping': True # mais feixes para busca
             }
-        else:  # "Detalhado"
+        elif complexidade == "Detalhado":  
             params = {
-                'max_length': 256,
-                'min_length': 80,
-                'num_beams': 6,
-                'no_repeat_ngram_size': 4,
-                'early_stopping': True,
-                'length_penalty': 2.0
+                'max_length': 256, # resposta com uma extensão maior
+                'min_length': 80, # resposta com uma extensão maior
+                'num_beams': 6, # mais feixes para busca
+                'no_repeat_ngram_size': 4, # evitar repetições
+                'early_stopping': True, # parar quando o resumo estiver completo
+                'length_penalty': 2.0 # penalizar resumos longos
             }
         
         inputs = tokenizer.encode(texto, max_length=512, truncation=True, return_tensors='pt')
@@ -89,7 +89,6 @@ with gr.Blocks() as interface:
                 interactive=False
             )
     
-    # Ações
     btn_carregar.click(
         fn=carregar_exemplo,
         inputs=exemplo_seletor,
