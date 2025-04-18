@@ -1,4 +1,5 @@
 {
+    "\\beh\\b": "é",
     "\\bqdo\\b": "quando",
     "\\bblz\\b": "beleza",
     "\\bvc\\b": "você",
@@ -16,6 +17,7 @@
     "\\bngm\\b": "ninguém",
     "\\bq\\b": "que",
     "\\bmt\\b": "muito",
+    "\\bmtas\\b": "muitas",
     "\\btd\\b": "tudo",
     "\\bbj[oô]\\b": "beijo",
     "\\bobg\\b": "obrigado",
