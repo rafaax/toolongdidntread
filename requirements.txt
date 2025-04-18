@@ -3,3 +3,5 @@ transformers
 gradio
 hf_xet
 numpy
+regex
+nltk
