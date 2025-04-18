@@ -1,5 +1,5 @@
 from core.abbreviations_loader import load_abbreviations
-from core.abbreviation_expander import expand_abbreviations
+from core.abbreviation_expander import preprocess_and_expand
 
 abrev = load_abbreviations()
 # informações do select de complexidades
@@ -35,7 +35,7 @@ def summarize_text(texto, complexidade, tokenizer, model):
     if len(texto.split()) < 30:
         return "Por favor, insira um texto mais longo (pelo menos 5-6 frases)"
     
-    texto = expand_abbreviations(texto, abrev)
+    texto = preprocess_and_expand(texto, abrev)
     
     try:
         params = get_summary_params(complexidade)
