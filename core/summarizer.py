@@ -35,8 +35,9 @@ def summarize_text(texto, complexidade, tokenizer, model):
     if len(texto.split()) < 30:
         return "Por favor, insira um texto mais longo (pelo menos 5-6 frases)"
     
-    
+    print(texto)
     texto = expand(dict=abrev, text=texto)
+    print(texto)
     
     try:
         params = get_summary_params(complexidade)

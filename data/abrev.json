@@ -63,5 +63,10 @@
     "\\bomg\\b": "oh my god",
     "\\bbtw\\b": "by the way",
     "\\bidk\\b": "I don't know",
-    "\\btbh\\b": "to be honest"
+    "\\btbh\\b": "to be honest",
+    "\\notif\\b": "notificação",
+    "\\cel\\b": "celular",
+    "\\zap\\b": "WhatsApp",
+    "\\pc\\b": "computador",
+    "\\tt\\b": "Twitter",
   }
