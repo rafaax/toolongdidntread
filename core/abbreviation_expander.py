@@ -1,12 +1,12 @@
 import re
 
-def expand(text, dict):
-    for abbrev, expansao in dict.items():
-        text = re.sub(abbrev, expansao, text, flags=re.IGNORECASE)
+def expand_abbreviations(text, abbreviation_dict):
+    for abbrev, expansion in abbreviation_dict.items():
+        try:
+            pattern = re.compile(abbrev, flags=re.IGNORECASE)
+            text = pattern.sub(expansion, text)
+        except re.error as e:
+            print(f"Erro no padrão regex '{abbrev}': {str(e)}")
+            continue  # Pula padrões inválidos
+            
     return text
-
-# texto_original = "vc sabe qdo ela vem? blz, tb vou cmg. flw!"
-# texto_expandido = expandir_abreviacoes(texto_original)
-
-# print("Original:", texto_original)
-# print("Expandido:", texto_expandido)

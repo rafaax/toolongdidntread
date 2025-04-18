@@ -64,9 +64,9 @@
     "\\bbtw\\b": "by the way",
     "\\bidk\\b": "I don't know",
     "\\btbh\\b": "to be honest",
-    "\\notif\\b": "notificação",
-    "\\cel\\b": "celular",
-    "\\zap\\b": "WhatsApp",
-    "\\pc\\b": "computador",
-    "\\tt\\b": "Twitter"
+    "\\bnotif\\b": "notificação",
+    "\\bcel\\b": "celular",
+    "\\bzap\\b": "WhatsApp",
+    "\\bpc\\b": "computador",
+    "\\btt\\b": "Twitter"
   }
