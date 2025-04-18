@@ -66,7 +66,10 @@
     "\\btbh\\b": "to be honest",
     "\\bnotif\\b": "notificação",
     "\\bcel\\b": "celular",
-    "\\bzap\\b": "WhatsApp",
+    "\\bzap\\b": "whatsApp",
     "\\bpc\\b": "computador",
-    "\\btt\\b": "Twitter"
+    "\\btt\\b": "twitter",
+    "\\big\\b": "instagram",
+    "\\bia\\b": "inteligência artificial",
+    "\\b+\\b": "mais"
   }
