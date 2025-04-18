@@ -1,4 +1,5 @@
-def get_summary_params(complexidade):
+# informações do select de complexidades
+def get_summary_params(complexidade): 
     params_map = {
         "Rápido": {
             'max_length': 150,
@@ -25,6 +26,7 @@ def get_summary_params(complexidade):
     }
     return params_map.get(complexidade, params_map["Rápido"])
 
+# função que faz o sumarizador através do modelo
 def summarize_text(texto, complexidade, tokenizer, model):
     if len(texto.split()) < 30:
         return "Por favor, insira um texto mais longo (pelo menos 5-6 frases)"
