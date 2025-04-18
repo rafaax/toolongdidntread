@@ -1,5 +1,5 @@
 import gradio as gr
-from core.summarizer import summarize_text, get_summary_params
+from core.summarizer import summarize_text
 
 def create_interface(tokenizer, model, examples):
     with gr.Blocks() as interface:

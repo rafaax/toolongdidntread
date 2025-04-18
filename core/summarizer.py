@@ -1,15 +1,3 @@
-def summarize_text(texto, complexidade, tokenizer, model):
-    if len(texto.split()) < 30:
-        return "Por favor, insira um texto mais longo (pelo menos 5-6 frases)"
-    
-    try:
-        params = get_summary_params(complexidade)
-        inputs = tokenizer.encode(texto, max_length=512, truncation=True, return_tensors='pt')
-        summary_ids = model.generate(inputs, **params)
-        return tokenizer.decode(summary_ids[0], skip_special_tokens=True)
-    except Exception as e:
-        return f"Erro ao sumarizar: {str(e)}"
-
 def get_summary_params(complexidade):
     params_map = {
         "Rápido": {
@@ -36,3 +24,15 @@ def get_summary_params(complexidade):
         }
     }
     return params_map.get(complexidade, params_map["Rápido"])
+
+def summarize_text(texto, complexidade, tokenizer, model):
+    if len(texto.split()) < 30:
+        return "Por favor, insira um texto mais longo (pelo menos 5-6 frases)"
+    
+    try:
+        params = get_summary_params(complexidade)
+        inputs = tokenizer.encode(texto, max_length=512, truncation=True, return_tensors='pt')
+        summary_ids = model.generate(inputs, **params)
+        return tokenizer.decode(summary_ids[0], skip_special_tokens=True)
+    except Exception as e:
+        return f"Erro ao sumarizar: {str(e)}"
