@@ -6,7 +6,7 @@ import nltk
 nltk.download('punkt')
 nltk.download('stopwords')
 
-# Dicionário de abreviações (personalizável)
+
 abreviacoes = {
     r'\bqdo\b': 'quando',
     r'\bblz\b': 'beleza',
@@ -20,13 +20,11 @@ abreviacoes = {
     r'\bpdc\b': 'pode crer'
 }
 
-# Função para expandir abreviações usando regex + dicionário
 def expandir_abreviacoes(texto):
     for abbrev, expansao in abreviacoes.items():
         texto = re.sub(abbrev, expansao, texto, flags=re.IGNORECASE)
     return texto
 
-# Exemplo de uso
 texto_original = "vc sabe qdo ela vem? blz, tb vou cmg. flw!"
 texto_expandido = expandir_abreviacoes(texto_original)
 

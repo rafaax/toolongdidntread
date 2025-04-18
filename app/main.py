@@ -1,6 +1,6 @@
 from app.interface import create_interface
 from core.model_loader import load_models
-from data.examples import load_examples
+from data.loaders import load_examples, load_abbreviations
 
 def main():
     tokenizer, model = load_models()
