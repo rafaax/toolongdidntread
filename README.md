@@ -52,7 +52,7 @@ O texto de entrada deve ter pelo menos 30 palavras e é truncado em 512 tokens.
 ## Limitações
 
 - **O modelo pode inventar informações.** Nos testes, os níveis Balanceado e Detalhado incluíram nomes, veículos de imprensa e datas que não estavam no texto original. Confira o resumo contra o texto antes de usá-lo.
-- **O dicionário de abreviações é amplo e também altera palavras comuns**: gírias como "vc", "tb" e "blz" são expandidas, mas entradas como "ia", "povo", "suave" e "amo" também mudam textos formais (por exemplo, "o povo" vira "o pessoal"). Revise `data/abrev.json` conforme o tipo de texto.
+- **O dicionário de abreviações foi pensado para linguagem informal** (chat e redes sociais): gírias como "vc", "tb" e "blz" são expandidas. Para outros tipos de texto, revise `data/abrev.json`.
 - O desempenho em GPU não foi testado.
 
 ---
