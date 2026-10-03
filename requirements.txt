@@ -1,6 +1,7 @@
-pytorch
-transformers
-gradio
+torch>=2.14
+transformers>=5.18
+gradio>=6.29
+sentencepiece
+protobuf
 hf_xet
 numpy
-regex
