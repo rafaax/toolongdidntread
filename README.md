@@ -29,7 +29,7 @@ python -m app.main              # execute na raiz do projeto
 
 A interface abre em `http://127.0.0.1:7860`. Na primeira execução, o modelo e o tokenizer (cerca de 850 MB) são baixados do Hugging Face e ficam em cache. Testado em CPU com Python 3.14, PyTorch 2.14, transformers 5.18 e Gradio 6.29.
 
-> **Atenção:** `app/main.py` inicia o Gradio com `share=True`, que cria um **link público temporário** para a sua máquina. Para usar só localmente, remova esse argumento.
+> **Atenção:** por padrão o app roda só na sua máquina. Para criar um **link público temporário** do Gradio, use `python -m app.main --share`.
 
 > **Dica:** o `requirements.txt` instala o PyTorch padrão do PyPI. Para uma versão apenas CPU (bem menor), instale antes com `pip install torch --index-url https://download.pytorch.org/whl/cpu`.
 
