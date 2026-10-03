@@ -52,7 +52,7 @@ O texto de entrada deve ter pelo menos 30 palavras e é truncado em 512 tokens.
 ## Limitações
 
 - **O modelo pode inventar informações.** Nos testes, os níveis Balanceado e Detalhado incluíram nomes, veículos de imprensa e datas que não estavam no texto original. Confira o resumo contra o texto antes de usá-lo.
-- **A expansão de abreviações ainda não tem efeito**: a remoção de URLs e emojis funciona, mas as abreviações de `data/abrev.json` não são substituídas. Acompanhe na [issue #1](https://github.com/rafaax/toolongdidntread/issues/1).
+- **O dicionário de abreviações é amplo e também altera palavras comuns**: gírias como "vc", "tb" e "blz" são expandidas, mas entradas como "ia", "povo", "suave" e "amo" também mudam textos formais (por exemplo, "o povo" vira "o pessoal"). Revise `data/abrev.json` conforme o tipo de texto.
 - O desempenho em GPU não foi testado.
 
 ---
