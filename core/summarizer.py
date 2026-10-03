@@ -33,7 +33,7 @@ def get_summary_params(complexidade):
 # função que faz o sumarizador através do modelo
 def summarize_text(texto, complexidade, tokenizer, model):
     if len(texto.split()) < 30:
-        return "Por favor, insira um texto mais longo (pelo menos 5-6 frases)"
+        return "Por favor, insira um texto mais longo (mínimo 30 palavras)"
     
     texto = preprocess_and_expand(texto, abrev)
     

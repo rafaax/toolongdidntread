@@ -19,7 +19,7 @@ def create_interface(tokenizer, model, examples):
                 input_text = gr.Textbox(
                     label="Texto para resumir",
                     lines=10,
-                    placeholder="Digite seu texto aqui (mínimo 30 letras)"
+                    placeholder="Digite seu texto aqui (mínimo 30 palavras)"
                 )
                 
                 with gr.Row():
