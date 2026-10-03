@@ -73,5 +73,5 @@
     "\\btt\\b": "twitter",
     "\\big\\b": "instagram",
     "\\bia\\b": "inteligência artificial",
-    "\\b+\\b": "mais"
+    "(?<=\\s)\\+(?=\\s)": "mais"
   }

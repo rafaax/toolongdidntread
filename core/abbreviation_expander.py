@@ -15,7 +15,7 @@ def preprocess_and_expand(text, abbreviation_dict):
 
     
     for abbrev, expansion in abbreviation_dict.items(): # Expande abreviações baseando se no dicionario criado, que está no data/abrev.json
-        pattern = re.compile(rf'\b{re.escape(abbrev)}\b', flags=re.IGNORECASE)
+        pattern = re.compile(abbrev, flags=re.IGNORECASE) # as chaves do abrev.json já são regex (com \b), então não devem ser escapadas
         
         def replace(match):
             word = match.group(0)
