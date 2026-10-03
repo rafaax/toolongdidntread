@@ -1,4 +1,6 @@
-# 🧠 PTT5 Text Summarizer - Brazilian Portuguese
+# Toolongdidntread
+
+O nome vem de *too long; didn't read* (TL;DR): o texto é tão longo que ninguém leu, então o app resume por você.
 
 Uma aplicação interativa de **sumarização abstrativa** de textos em **Português Brasileiro**, baseada no modelo [PTT5-base-summ-xlsum](https://huggingface.co/recogna-nlp/ptt5-base-summ-xlsum) da Hugging Face.
 
@@ -6,17 +8,17 @@ Uma aplicação interativa de **sumarização abstrativa** de textos em **Portug
 
 ---
 
-## ✨ Funcionalidades
+## Funcionalidades
 
-- 🔤 Interface web com [Gradio](https://gradio.app/) para inserir o texto e ver o resumo
-- 📉 Três níveis de qualidade da análise: **Rápido**, **Balanceado** e **Detalhado**
-- 🧹 Pré-processamento: remoção de URLs e emojis e dicionário de abreviações (`data/abrev.json`)
-- 🧪 Quatro textos de exemplo (`data/texts.json`) para teste rápido na interface
-- 🤖 Modelo fine-tuned para sumarização em Português Brasileiro, executado em CPU
+- Interface web com [Gradio](https://gradio.app/) para inserir o texto e ver o resumo
+- Três níveis de qualidade da análise: **Rápido**, **Balanceado** e **Detalhado**
+- Pré-processamento: remoção de URLs e emojis e dicionário de abreviações (`data/abrev.json`)
+- Quatro textos de exemplo (`data/texts.json`) para teste rápido na interface
+- Modelo fine-tuned para sumarização em Português Brasileiro, executado em CPU
 
 ---
 
-## 🚀 Como rodar
+## Como rodar
 
 ```bash
 python -m venv venv
@@ -27,13 +29,13 @@ python -m app.main              # execute na raiz do projeto
 
 A interface abre em `http://127.0.0.1:7860`. Na primeira execução, o modelo e o tokenizer (cerca de 850 MB) são baixados do Hugging Face e ficam em cache. Testado em CPU com Python 3.14, PyTorch 2.14, transformers 5.18 e Gradio 6.29.
 
-> ⚠️ `app/main.py` inicia o Gradio com `share=True`, que cria um **link público temporário** para a sua máquina. Para usar só localmente, remova esse argumento.
+> **Atenção:** `app/main.py` inicia o Gradio com `share=True`, que cria um **link público temporário** para a sua máquina. Para usar só localmente, remova esse argumento.
 
-> 💡 O `requirements.txt` instala o PyTorch padrão do PyPI. Para uma versão apenas CPU (bem menor), instale antes com `pip install torch --index-url https://download.pytorch.org/whl/cpu`.
+> **Dica:** o `requirements.txt` instala o PyTorch padrão do PyPI. Para uma versão apenas CPU (bem menor), instale antes com `pip install torch --index-url https://download.pytorch.org/whl/cpu`.
 
 ---
 
-## ⚙️ Níveis de qualidade
+## Níveis de qualidade
 
 Cada nível ajusta a geração do resumo (`core/summarizer.py`). Os tempos foram medidos em CPU, com textos de 85 a 250 palavras:
 
@@ -47,7 +49,7 @@ O texto de entrada deve ter pelo menos 30 palavras e é truncado em 512 tokens.
 
 ---
 
-## ⚠️ Limitações
+## Limitações
 
 - **O modelo pode inventar informações.** Nos testes, os níveis Balanceado e Detalhado incluíram nomes, veículos de imprensa e datas que não estavam no texto original. Confira o resumo contra o texto antes de usá-lo.
 - **A expansão de abreviações ainda não tem efeito**: a remoção de URLs e emojis funciona, mas as abreviações de `data/abrev.json` não são substituídas. Acompanhe na [issue #1](https://github.com/rafaax/toolongdidntread/issues/1).
@@ -55,7 +57,7 @@ O texto de entrada deve ter pelo menos 30 palavras e é truncado em 512 tokens.
 
 ---
 
-## 📁 Estrutura
+## Estrutura
 
 ```
 app/    interface Gradio (interface.py) e ponto de entrada (main.py)
